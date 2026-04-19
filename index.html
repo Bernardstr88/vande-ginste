@@ -137,6 +137,36 @@
   @media(max-width:340px){.nav-cta .btn-primary .tel-full{display:none}.nav-cta .btn-primary .tel-short{display:inline}}
   .nav-cta .btn-primary .tel-short{display:none}
 
+  /* Hamburger button */
+  .hamburger{display:none;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);border-radius:50%;cursor:pointer;color:var(--ink);padding:0;margin-left:4px}
+  .hamburger:hover{background:var(--paper)}
+  .hamburger svg{display:block}
+  .hamburger .bar{stroke:currentColor;stroke-width:2;stroke-linecap:round;transform-origin:center;transition:transform .25s ease, opacity .2s ease, y .25s ease, x1 .25s ease, x2 .25s ease}
+  @media(max-width:640px){.hamburger{display:inline-flex}}
+  body.menu-open .hamburger .bar-top{transform:translateY(6px) rotate(45deg)}
+  body.menu-open .hamburger .bar-mid{opacity:0}
+  body.menu-open .hamburger .bar-bot{transform:translateY(-6px) rotate(-45deg)}
+
+  /* Mobile menu panel */
+  .mobile-menu{position:fixed;inset:64px 0 0 0;z-index:49;background:var(--paper);backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:space-between;padding:40px 28px 32px;transform:translateY(-100%);opacity:0;visibility:hidden;transition:transform .3s ease, opacity .25s ease, visibility 0s linear .3s;overflow-y:auto}
+  body.menu-open .mobile-menu{transform:translateY(0);opacity:1;visibility:visible;transition:transform .3s ease, opacity .25s ease, visibility 0s linear 0s}
+  .mobile-menu-links{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+  .mobile-menu-links a{display:flex;align-items:center;min-height:56px;padding:14px 4px;font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);letter-spacing:-.01em}
+  .mobile-menu-links a:hover{color:var(--accent)}
+  .mobile-menu-contact{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+  .mobile-menu-contact a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:16px 20px;border-radius:999px;font-size:16px;font-weight:500;text-decoration:none;transition:background .2s ease, color .2s ease}
+  .mobile-menu-contact .mm-tel{background:var(--ink);color:#f5f1e8}
+  .mobile-menu-contact .mm-tel:hover{background:var(--accent)}
+  .mobile-menu-contact .mm-mail{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .mobile-menu-contact .mm-mail:hover{background:var(--bg)}
+  body.menu-open{overflow:hidden}
+  @media(min-width:641px){.mobile-menu{display:none!important}}
+  @media (prefers-reduced-motion: reduce){
+    .mobile-menu{transition:opacity .01ms, visibility 0s}
+    body.menu-open .mobile-menu{transform:none;transition:opacity .01ms, visibility 0s}
+    .hamburger .bar{transition:none}
+  }
+
   /* Hero */
   .hero{position:relative;height:min(92vh,820px);min-height:560px;overflow:hidden;border-bottom:1px solid var(--line)}
   .hero iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
@@ -248,9 +278,35 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span class="tel-full">+32 468 20 25 74</span><span class="tel-short">Bel</span>
       </a>
+      <button class="hamburger" type="button" id="hamburger" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <line class="bar bar-top" x1="4" y1="7" x2="20" y2="7"/>
+          <line class="bar bar-mid" x1="4" y1="12" x2="20" y2="12"/>
+          <line class="bar bar-bot" x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
     </nav>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobiel menu" hidden>
+  <ul class="mobile-menu-links">
+    <li><a href="#diensten" data-menu-link>Diensten</a></li>
+    <li><a href="#werkwijze" data-menu-link>Werkwijze</a></li>
+    <li><a href="#realisaties" data-menu-link>Realisaties</a></li>
+    <li><a href="#contact" data-menu-link>Contact</a></li>
+  </ul>
+  <div class="mobile-menu-contact">
+    <a class="mm-tel" href="tel:+32468202574" data-menu-link>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +32 468 20 25 74
+    </a>
+    <a class="mm-mail" href="mailto:leander@vande-ginste.be" data-menu-link>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      leander@vande-ginste.be
+    </a>
+  </div>
+</div>
 
 <section class="hero" aria-label="Hero video">
   <div class="hero-fallback"></div>
@@ -333,7 +389,7 @@
   </div>
 </section>
 
-<section class="proces" aria-labelledby="proces-title">
+<section class="proces" id="werkwijze" aria-labelledby="proces-title">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -366,7 +422,7 @@
   </div>
 </section>
 
-<section aria-labelledby="realisaties-title">
+<section id="realisaties" aria-labelledby="realisaties-title">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -493,6 +549,59 @@
 
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
+
+(function(){
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  if(!btn || !menu) return;
+  const links = menu.querySelectorAll('a[data-menu-link]');
+  let lastFocus = null;
+
+  function focusables(){
+    return Array.from(menu.querySelectorAll('a[href], button:not([disabled])'))
+      .filter(el => !el.hasAttribute('hidden') && el.offsetParent !== null);
+  }
+  function openMenu(){
+    lastFocus = document.activeElement;
+    menu.removeAttribute('hidden');
+    // force reflow so transition runs
+    void menu.offsetWidth;
+    document.body.classList.add('menu-open');
+    btn.setAttribute('aria-expanded','true');
+    btn.setAttribute('aria-label','Menu sluiten');
+    const first = focusables()[0];
+    if(first) first.focus();
+  }
+  function closeMenu(){
+    document.body.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','Menu openen');
+    // hide after transition to keep it out of the a11y tree
+    setTimeout(() => { if(!document.body.classList.contains('menu-open')) menu.setAttribute('hidden',''); }, 320);
+    if(lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+  function isOpen(){ return document.body.classList.contains('menu-open'); }
+
+  btn.addEventListener('click', () => { isOpen() ? closeMenu() : openMenu(); });
+  links.forEach(a => a.addEventListener('click', () => { if(isOpen()) closeMenu(); }));
+
+  document.addEventListener('keydown', e => {
+    if(!isOpen()) return;
+    if(e.key === 'Escape'){ e.preventDefault(); closeMenu(); return; }
+    if(e.key === 'Tab'){
+      const f = focusables();
+      if(!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // Close menu if viewport grows past breakpoint
+  window.matchMedia('(min-width: 641px)').addEventListener('change', e => {
+    if(e.matches && isOpen()) closeMenu();
+  });
+})();
 
 (function(){
   const lb = document.getElementById('lightbox');
