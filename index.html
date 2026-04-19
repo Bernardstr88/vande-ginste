@@ -239,8 +239,9 @@
 
   /* CTA */
   .cta{background:linear-gradient(180deg,var(--paper) 0%,var(--bg) 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .cta-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;padding:84px 0}
-  @media(max-width:900px){.cta-inner{grid-template-columns:1fr;gap:36px;padding:64px 0}}
+  .cta-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;padding:84px 28px}
+  @media(max-width:900px){.cta-inner{grid-template-columns:1fr;gap:36px;padding:64px 28px}}
+  @media(max-width:400px){.cta-inner{padding:56px 20px}}
   .cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.05;margin:10px 0 18px}
   .cta p{color:var(--muted);max-width:48ch;margin:0 0 28px}
   .cta-buttons{display:flex;flex-wrap:wrap;gap:12px}
