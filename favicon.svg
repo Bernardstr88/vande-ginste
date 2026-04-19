@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Ink background, rounded -->
+  <rect width="32" height="32" rx="6" ry="6" fill="#1a1814"/>
+  <!-- Subtle copper inner border -->
+  <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="5" ry="5"
+        fill="none" stroke="#8a6a4a" stroke-width="0.75" opacity="0.55"/>
+  <!-- VG monogram, serif, accent-soft copper -->
+  <text x="16" y="23"
+        text-anchor="middle"
+        font-family="'Instrument Serif', Georgia, 'Times New Roman', serif"
+        font-size="21"
+        font-weight="700"
+        fill="#d4a574"
+        letter-spacing="-1">VG</text>
+</svg>
