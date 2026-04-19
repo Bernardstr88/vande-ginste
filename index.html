@@ -121,7 +121,7 @@
 
   /* Top nav */
   header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(239,234,224,.82);border-bottom:1px solid var(--line)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
   .brand{display:flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-size:22px;white-space:nowrap}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-soft);display:inline-block}
   @media(max-width:360px){.brand{font-size:18px;gap:8px}}
@@ -134,7 +134,7 @@
   .btn-ghost:hover{background:var(--paper)}
   @media(max-width:640px){.nav-cta .btn-ghost{display:none}}
   @media(max-width:400px){.nav-cta .btn-primary{font-size:12px;padding:10px 14px;gap:6px}.nav-cta .btn-primary svg{width:12px;height:12px}}
-  @media(max-width:340px){.nav-cta .btn-primary .tel-full{display:none}.nav-cta .btn-primary .tel-short{display:inline}}
+  @media(max-width:380px){.nav-cta .btn-primary .tel-full{display:none}.nav-cta .btn-primary .tel-short{display:inline}}
   .nav-cta .btn-primary .tel-short{display:none}
 
   /* Hamburger button */
