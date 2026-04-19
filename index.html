@@ -122,8 +122,10 @@
   /* Top nav */
   header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(239,234,224,.82);border-bottom:1px solid var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-size:22px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-size:22px;white-space:nowrap}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-soft);display:inline-block}
+  @media(max-width:360px){.brand{font-size:18px;gap:8px}}
+  @media(max-width:300px){.brand{font-size:16px;gap:6px}.brand .dot{width:6px;height:6px}}
   .nav-cta{display:flex;align-items:center;gap:14px}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;transition:transform .15s ease,background .2s ease,color .2s ease}
   .btn-primary{background:var(--ink);color:#f5f1e8}
