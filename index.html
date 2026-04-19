@@ -125,12 +125,15 @@
   .brand{display:flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-size:22px}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-soft);display:inline-block}
   .nav-cta{display:flex;align-items:center;gap:14px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;transition:transform .15s ease,background .2s ease,color .2s ease}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .2s ease,color .2s ease}
   .btn-primary{background:var(--ink);color:#f5f1e8}
   .btn-primary:hover{transform:translateY(-1px);background:var(--accent)}
   .btn-ghost{border:1px solid var(--line);color:var(--ink)}
   .btn-ghost:hover{background:var(--paper)}
   @media(max-width:640px){.nav-cta .btn-ghost{display:none}}
+  @media(max-width:400px){.nav-cta .btn-primary{font-size:12px;padding:10px 14px;gap:6px}.nav-cta .btn-primary svg{width:12px;height:12px}}
+  @media(max-width:340px){.nav-cta .btn-primary .tel-full{display:none}.nav-cta .btn-primary .tel-short{display:inline}}
+  .nav-cta .btn-primary .tel-short{display:none}
 
   /* Hero */
   .hero{position:relative;height:min(92vh,820px);min-height:560px;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -240,7 +243,7 @@
       <a class="btn btn-ghost" href="#diensten">Diensten</a>
       <a class="btn btn-primary" href="tel:+32468202574">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +32 468 20 25 74
+        <span class="tel-full">+32 468 20 25 74</span><span class="tel-short">Bel</span>
       </a>
     </nav>
   </div>
