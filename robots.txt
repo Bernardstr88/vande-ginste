@@ -1,0 +1,36 @@
+# robots.txt - Vande Ginste Leander
+# https://www.vande-ginste.be/
+
+User-agent: *
+Allow: /
+
+# Bron- en uploadmappen uitsluiten (duplicate content / irrelevant)
+Disallow: /Leander/uploads/
+Disallow: /Leander/screenshots/
+Disallow: /afbeeldingen/
+
+# Specifieke user-agents
+User-agent: Googlebot
+Allow: /
+Disallow: /Leander/uploads/
+Disallow: /Leander/screenshots/
+Disallow: /afbeeldingen/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /Leander/uploads/
+Disallow: /Leander/screenshots/
+Disallow: /afbeeldingen/
+
+# AI crawlers (optioneel toelaten voor brand visibility in AI search)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.vande-ginste.be/sitemap.xml
